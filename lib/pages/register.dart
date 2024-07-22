@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:realest/pages/home.dart';
 import 'package:realest/pages/login.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -9,6 +10,9 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  String? _selectedItem = '+68';
+  final List<String> _dropdownItems = ['+68', '+1', '+44', '+91'];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -53,14 +57,49 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 15)),
-                const TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Number',
-                    hintStyle: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 15,
+                Row(
+                  children: [
+                    Container(
+                      height:
+                          65, // Set the height to match the text field height
+                      padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                      decoration: BoxDecoration(
+                          border:
+                              Border(bottom: BorderSide(color: Colors.grey))),
+                      child: DropdownButtonHideUnderline(
+                        child: DropdownButton<String>(
+                          value: _selectedItem,
+                          items: _dropdownItems.map((String item) {
+                            return DropdownMenuItem<String>(
+                              value: item,
+                              child: Text(item),
+                            );
+                          }).toList(),
+                          onChanged: (String? newValue) {
+                            setState(() {
+                              _selectedItem = newValue!;
+                            });
+                          },
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(
+                        width:
+                            10), // Add some space between the dropdown and the text field
+                    Expanded(
+                      child: const TextField(
+                        decoration: InputDecoration(
+                          hintText: 'Number',
+                          hintStyle: TextStyle(
+                            color: Colors.grey,
+                            fontSize: 15,
+                          ),
+                          contentPadding: EdgeInsets.symmetric(
+                              vertical: 20), // Adjust padding to match height
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 15)),
                 const TextField(
@@ -87,7 +126,12 @@ class _RegisterPageState extends State<RegisterPage> {
                   width: MediaQuery.of(context).size.width,
                   height: 50,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    },
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.blue,
                         shape: RoundedRectangleBorder(

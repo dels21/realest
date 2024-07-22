@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:realest/pages/home.dart';
 import 'register.dart';
 
 class LoginPage extends StatefulWidget {
@@ -67,7 +68,12 @@ class _LoginPageState extends State<LoginPage> {
                   width: MediaQuery.of(context).size.width,
                   height: 50,
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const HomePage()));
+                    },
                     style: TextButton.styleFrom(
                         backgroundColor: Colors.blue,
                         shape: RoundedRectangleBorder(
