@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:realest/pages/detail_properties.dart';
+import 'package:realest/pages/wishlist.dart';
 import 'pages/login.dart';
 
 void main() {
@@ -23,7 +25,7 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
         fontFamily: 'SFPro',
       ),
-      home: LoginPage(),
+      home: WishlistPage(),
     );
   }
 }
