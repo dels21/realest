@@ -1,46 +1,5 @@
 import 'package:flutter/material.dart';
 
-class WishlistPage extends StatefulWidget {
-  @override
-  _WishlistPageState createState() => _WishlistPageState();
-}
-
-class _WishlistPageState extends State<WishlistPage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Wishlist'),
-        leading: IconButton(
-          icon: Icon(Icons.arrow_back),
-          onPressed: () {},
-        ),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: GridView.count(
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          childAspectRatio:
-              (1 / 1.4), // Adjust aspect ratio to fit your content
-          crossAxisSpacing: 8.0,
-          // mainAxisSpacing: 16.0,
-          children: List.generate(16, (index) {
-            return Center(
-              child: WishlistCard(
-                title: 'Title',
-                price: '\$XXX/month',
-                imageUrl: "assets/gambar_rumah.png",
-                address: '123 Example Street',
-              ),
-            );
-          }),
-        ),
-      ),
-    );
-  }
-}
-
 class WishlistCard extends StatefulWidget {
   final String title;
   final String price;
@@ -59,7 +18,7 @@ class WishlistCard extends StatefulWidget {
 }
 
 class _WishlistCardState extends State<WishlistCard> {
-  bool _isFavorited = true;
+  bool _isSaved = false;
 
   @override
   Widget build(BuildContext context) {
@@ -74,12 +33,12 @@ class _WishlistCardState extends State<WishlistCard> {
               Image.asset(widget.imageUrl),
               IconButton(
                 icon: Icon(
-                  _isFavorited ? Icons.favorite : Icons.favorite_border,
-                  color: _isFavorited ? Colors.red : Colors.grey,
+                  _isSaved ? Icons.star : Icons.star_border,
+                  color: _isSaved ? Colors.yellow : Colors.grey,
                 ),
                 onPressed: () {
                   setState(() {
-                    _isFavorited = !_isFavorited;
+                    _isSaved = !_isSaved;
                   });
                 },
               ),
