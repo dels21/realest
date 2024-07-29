@@ -64,7 +64,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 15)),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 50,
                   child: TextButton(
@@ -93,14 +93,14 @@ class _LoginPageState extends State<LoginPage> {
                       'assets/Horizontal Line.png',
                       width: MediaQuery.of(context).size.width * 0.25,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     const Text(
                       'or login with',
                       style: TextStyle(
                         fontSize: 15,
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Image.asset(
                       'assets/Horizontal Line.png',
                       width: MediaQuery.of(context).size.width * 0.25,
@@ -108,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: OutlinedButton(
                     onPressed: () {},
@@ -116,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),
                     ),
-                    child: Container(
+                    child: SizedBox(
                       height: 60,
                       child: Stack(
                         alignment: Alignment.center,
@@ -140,7 +140,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: OutlinedButton(
                     onPressed: () {},
@@ -172,7 +172,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 10)),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   child: OutlinedButton(
                     onPressed: () {},
@@ -180,7 +180,7 @@ class _LoginPageState extends State<LoginPage> {
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(12)),
                     ),
-                    child: Container(
+                    child: SizedBox(
                       height: 60,
                       child: Stack(
                         alignment: Alignment.center,

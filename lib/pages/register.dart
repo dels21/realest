@@ -63,7 +63,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       height:
                           65, // Set the height to match the text field height
                       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           border:
                               Border(bottom: BorderSide(color: Colors.grey))),
                       child: DropdownButtonHideUnderline(
@@ -85,9 +85,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                     const SizedBox(
                         width:
-                            10), // Add some space between the dropdown and the text field
-                    Expanded(
-                      child: const TextField(
+                            10), 
+                    const Expanded(
+                      child: TextField(
                         decoration: InputDecoration(
                           hintText: 'Number',
                           hintStyle: TextStyle(
@@ -122,7 +122,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 30)),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width,
                   height: 50,
                   child: TextButton(
@@ -144,7 +144,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
