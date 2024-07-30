@@ -19,6 +19,62 @@ class _PropertiesDetailPagesState extends State<PropertiesDetailPages> {
     Colors.green // Image 4
   ];
 
+  void _showContactPopup() {
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.vertical(top: Radius.circular(15.0)),
+      ),
+      builder: (BuildContext context) {
+        return Padding(
+          padding: EdgeInsets.only(
+            bottom: MediaQuery.of(context).viewInsets.bottom,
+          ),
+          child: Wrap(
+            children: [
+              ListTile(
+                leading: GestureDetector(
+                  child: const Icon(Icons.close_rounded),
+                  onTap: () {
+                    Navigator.pop(context);
+                  },
+                ),
+                title: const Text(
+                  'Contact Now',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              ListTile(
+                leading: const Icon(Icons.contact_mail),
+                title: const Text('Contact Agent'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.phone),
+                title: const Text('Call +62123456789'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.message),
+                title: const Text('Message +62123456789'),
+                onTap: () {},
+              ),
+              ListTile(
+                leading: const Icon(Icons.wechat),
+                title: const Text('We Chat'),
+                onTap: () {},
+              ),
+            ],
+          ),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -46,11 +102,11 @@ class _PropertiesDetailPagesState extends State<PropertiesDetailPages> {
                           ),
                           actions: [
                             IconButton(
-                              icon: const Icon(Icons.share),
+                              icon: const Icon(Icons.star),
                               onPressed: () {},
                             ),
                             IconButton(
-                              icon: const Icon(Icons.favorite),
+                              icon: const Icon(Icons.share),
                               onPressed: () {},
                             ),
                           ],
@@ -83,18 +139,18 @@ class _PropertiesDetailPagesState extends State<PropertiesDetailPages> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         const Text(
-                          'Spanish Mansion',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
-                        const SizedBox(height: 8),
-                        const Text(
                           'House > Indonesia > Jakarta Pusat > Menteng',
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.grey,
+                          ),
+                        ),
+                        const SizedBox(height: 8),
+                        const Text(
+                          'Spanish Mansion',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         const SizedBox(height: 16),
@@ -173,6 +229,9 @@ class _PropertiesDetailPagesState extends State<PropertiesDetailPages> {
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
+                                SizedBox(
+                                  height: 8,
+                                ),
                                 Text(
                                   '2 years with Realest',
                                   style: TextStyle(
@@ -231,7 +290,7 @@ class _PropertiesDetailPagesState extends State<PropertiesDetailPages> {
                           title: Text('Garden'),
                         ),
                         const ListTile(
-                          leading: Icon(Icons.local_fire_department),
+                          leading: Icon(Icons.hot_tub),
                           title: Text('Sauna'),
                         ),
                         const SizedBox(height: 16),
@@ -249,7 +308,7 @@ class _PropertiesDetailPagesState extends State<PropertiesDetailPages> {
                           trailing: Text('637m'),
                         ),
                         const ListTile(
-                          leading: Icon(Icons.school),
+                          leading: Icon(Icons.train),
                           title: Text('St. BCA Learning Institute'),
                           trailing: Text('830m'),
                         ),
@@ -340,10 +399,15 @@ class _PropertiesDetailPagesState extends State<PropertiesDetailPages> {
                         height: MediaQuery.of(context).size.width * 0.15,
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color.fromRGBO(52, 199, 89,
-                                1), // Replace with your desired color
+                            shape: const RoundedRectangleBorder(
+                              borderRadius: BorderRadius.vertical(
+                                  top: Radius.circular(15),
+                                  bottom: Radius.circular(15)),
+                            ),
+                            backgroundColor:
+                                const Color.fromRGBO(52, 199, 89, 1),
                           ),
-                          onPressed: () {},
+                          onPressed: _showContactPopup,
                           child: const Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
