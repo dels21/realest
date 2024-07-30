@@ -13,33 +13,128 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(),
-      body: Center(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: MediaQuery.sizeOf(context).width * 0.2,
-                    child: const ClipOval(
-                      child: Image(
-                        image: AssetImage("assets/Profile.jpeg"),
+      body: LayoutBuilder(
+        builder: (context, constraints) {
+          return Center(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(25, 0, 25, 0),
+                  child: Row(
+                    children: [
+                      SizedBox(
+                        width: constraints.maxWidth * 0.2,
+                        child: const ClipOval(
+                          child: Image(
+                            image: AssetImage("assets/Profile.jpeg"),
+                          ),
+                        ),
                       ),
-                    ),
+                      const SizedBox(
+                        width: 16,
+                      ),
+                      SizedBox(
+                        width: constraints.maxWidth * 0.5,
+                        child: const Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Shrekquille',
+                              style: TextStyle(
+                                  fontSize: 20, fontWeight: FontWeight.w600),
+                            ),
+                            Text(
+                              '+6812345678989',
+                              style: TextStyle(fontSize: 15),
+                            ),
+                          ],
+                        ),
+                      ),
+                      const Spacer(),
+                      const Icon(
+                        Icons.settings,
+                        color: Colors.black,
+                      )
+                    ],
                   ),
-                  const SizedBox(
-                    width: 16,
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    25,
+                    0,
+                    25,
+                    5,
                   ),
-                  SizedBox(
-                    width: MediaQuery.sizeOf(context).width * 0.5,
+                  child: SizedBox(
+                    width: constraints.maxWidth,
                     child: const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Shrekquille',
+                          'Fullname',
                           style: TextStyle(
-                              fontSize: 15, fontWeight: FontWeight.w600),
+                              fontSize: 17, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          'Shrekquille Ditama',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    25,
+                    5,
+                    25,
+                    5,
+                  ),
+                  child: SizedBox(
+                    width: constraints.maxWidth,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Email',
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.w600),
+                        ),
+                        Text(
+                          'shrekquilleditama@gmail.com',
+                          style: TextStyle(fontSize: 15),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    25,
+                    5,
+                    25,
+                    5,
+                  ),
+                  child: SizedBox(
+                    width: constraints.maxWidth,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Phone Number',
+                          style: TextStyle(
+                              fontSize: 17, fontWeight: FontWeight.w600),
                         ),
                         Text(
                           '+6812345678989',
@@ -48,243 +143,152 @@ class ProfilePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const Spacer(),
-                  const Icon(
-                    Icons.settings,
-                    color: Colors.black,
-                  )
-                ],
-              ),
-            ),
-            const SizedBox(
-              height: 15,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                25,
-                0,
-                25,
-                5,
-              ),
-              child: SizedBox(
-                width: MediaQuery.sizeOf(context).width,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Fullname',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      'Shrekquille Ditama',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
                 ),
-              ),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                25,
-                5,
-                25,
-                5,
-              ),
-              child: SizedBox(
-                width: MediaQuery.sizeOf(context).width,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Email',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      'shrekquilleditama@gmail.com',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
                 ),
-              ),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                25,
-                5,
-                25,
-                5,
-              ),
-              child: SizedBox(
-                width: MediaQuery.sizeOf(context).width,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Phone Number',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      '+6812345678989',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                25,
-                5,
-                25,
-                5,
-              ),
-              child: SizedBox(
-                width: MediaQuery.sizeOf(context).width,
-                child: const Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Address',
-                      style:
-                          TextStyle(fontSize: 17, fontWeight: FontWeight.w600),
-                    ),
-                    Text(
-                      'Rumah Talenta BCA',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                25,
-                15,
-                25,
-                15,
-              ),
-              child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width,
-                  child: const Row(
-                    children: [
-                      Text(
-                        'Transaction History',
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w600),
-                      ),
-                      Spacer(),
-                      Icon(Icons.assignment)
-                    ],
-                  )),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                25,
-                15,
-                25,
-                15,
-              ),
-              child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width,
-                  child: const Row(
-                    children: [
-                      Text(
-                        'Notification',
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w600),
-                      ),
-                      Spacer(),
-                      Icon(Icons.notifications)
-                    ],
-                  )),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(
-                25,
-                15,
-                25,
-                15,
-              ),
-              child: SizedBox(
-                  width: MediaQuery.sizeOf(context).width,
-                  child: const Row(
-                    children: [
-                      Text(
-                        'Privacy and Policy',
-                        style: TextStyle(
-                            fontSize: 17, fontWeight: FontWeight.w600),
-                      ),
-                      Spacer(),
-                      Icon(Icons.lock)
-                    ],
-                  )),
-            ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-            GestureDetector(
-              onTap: () => _showLogoutConfirmationDialog(context),
-              child: Padding(
-                padding: const EdgeInsets.fromLTRB(
-                  25,
-                  15,
-                  25,
-                  15,
-                ),
-                child: SizedBox(
-                    width: MediaQuery.sizeOf(context).width,
-                    child: const Row(
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    25,
+                    5,
+                    25,
+                    5,
+                  ),
+                  child: SizedBox(
+                    width: constraints.maxWidth,
+                    child: const Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Logout',
+                          'Address',
                           style: TextStyle(
-                              fontSize: 17,
-                              fontWeight: FontWeight.w600,
-                              color: Colors.red),
+                              fontSize: 17, fontWeight: FontWeight.w600),
                         ),
-                        Spacer(),
-                        Icon(
-                          Icons.logout,
-                          color: Colors.red,
-                        )
+                        Text(
+                          'Rumah Talenta BCA',
+                          style: TextStyle(fontSize: 15),
+                        ),
                       ],
-                    )),
-              ),
+                    ),
+                  ),
+                ),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    25,
+                    15,
+                    25,
+                    15,
+                  ),
+                  child: SizedBox(
+                      width: constraints.maxWidth,
+                      child: const Row(
+                        children: [
+                          Text(
+                            'Transaction History',
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.w600),
+                          ),
+                          Spacer(),
+                          Icon(Icons.assignment)
+                        ],
+                      )),
+                ),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    25,
+                    15,
+                    25,
+                    15,
+                  ),
+                  child: SizedBox(
+                      width: constraints.maxWidth,
+                      child: const Row(
+                        children: [
+                          Text(
+                            'Notification',
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.w600),
+                          ),
+                          Spacer(),
+                          Icon(Icons.notifications)
+                        ],
+                      )),
+                ),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
+                ),
+                Padding(
+                  padding: const EdgeInsets.fromLTRB(
+                    25,
+                    15,
+                    25,
+                    15,
+                  ),
+                  child: SizedBox(
+                      width: constraints.maxWidth,
+                      child: const Row(
+                        children: [
+                          Text(
+                            'Privacy and Policy',
+                            style: TextStyle(
+                                fontSize: 17, fontWeight: FontWeight.w600),
+                          ),
+                          Spacer(),
+                          Icon(Icons.lock)
+                        ],
+                      )),
+                ),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
+                ),
+                GestureDetector(
+                  onTap: () => _showLogoutConfirmationDialog(context),
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      25,
+                      15,
+                      25,
+                      15,
+                    ),
+                    child: SizedBox(
+                        width: constraints.maxWidth,
+                        child: const Row(
+                          children: [
+                            Text(
+                              'Logout',
+                              style: TextStyle(
+                                  fontSize: 17,
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.red),
+                            ),
+                            Spacer(),
+                            Icon(
+                              Icons.logout,
+                              color: Colors.red,
+                            )
+                          ],
+                        )),
+                  ),
+                ),
+                const Divider(
+                  color: Colors.black,
+                  thickness: 0.5,
+                ),
+              ],
             ),
-            const Divider(
-              color: Colors.black,
-              thickness: 0.5,
-            ),
-          ],
-        ),
+          );
+        },
       ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: 4,
