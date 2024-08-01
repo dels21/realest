@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:realest/pages/coba.dart';
 import 'package:realest/pages/search.dart';
-import 'package:realest/pages/search2.dart';
-import 'package:realest/pages/simulation.dart';
+import 'package:realest/pages/saved.dart';
+import 'package:realest/widgets/search2.dart';
+import 'package:realest/pages/simulationCard.dart';
 import 'pages/login.dart';
 
 void main() {
