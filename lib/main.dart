@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:realest/pages/coba.dart';
+import 'package:realest/pages/search.dart';
+import 'package:realest/pages/search2.dart';
+import 'package:realest/pages/simulation.dart';
 import 'pages/login.dart';
 
 void main() {
@@ -23,7 +27,8 @@ class _MyAppState extends State<MyApp> {
         useMaterial3: true,
         fontFamily: 'SFPro',
       ),
-      home: LoginPage(),
+      home: SearchPage(),
     );
   }
 }
+

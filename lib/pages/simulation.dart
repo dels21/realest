@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:realest/pages/home.dart';
 import 'package:realest/pages/profile.dart';
 import 'package:realest/pages/saved.dart';
@@ -11,8 +12,54 @@ class SimulationPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      body: const Center(child: Text('Simulation Page Content')),
+      body: SafeArea(
+        child: Container(
+            width: MediaQuery.sizeOf(context).width,
+            padding: EdgeInsets.all(20),
+            child:
+            Column(
+              children: [
+                Text("Simulasi KPR", textAlign: TextAlign.center, ),
+                Container(
+                  width: MediaQuery.sizeOf(context).width * 0.8,
+                  decoration: BoxDecoration(color: Color(0xFF081F5C), borderRadius: BorderRadius.circular(20)),
+                  padding: EdgeInsets.all(20),
+                  child: Column(
+                    children: [
+                      Text("Estimasi Angsuran/Bulan", style: TextStyle(color: Colors.white),),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Rp 100.000.000", style: TextStyle(color: Colors.white)),
+                          Icon(Icons.info_rounded, color: Colors.white,)
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text("Harga Properti", textAlign: TextAlign.start,),
+                    TextField(
+                      decoration: InputDecoration(
+                        prefixText: "Rp ",
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide(color: Colors.red),
+                          borderRadius: BorderRadius.circular(10)
+                        )
+                      ),
+                      keyboardType: TextInputType.number,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                    )
+                  ],
+                )
+              ],
+            )
+        ),
+      ),
       bottomNavigationBar: BottomNavigation(
         currentIndex: 2,
         onTabTapped: (index) {
