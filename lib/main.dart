@@ -23,11 +23,11 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.white),
         useMaterial3: true,
         fontFamily: 'SFPro',
       ),
-      home: SearchPage(),
+      home: const LoginPage(),
     );
   }
 }
