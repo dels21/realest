@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:realest/pages/home.dart';
 import 'package:realest/pages/profile.dart';
@@ -8,6 +6,23 @@ import 'package:realest/pages/simulation.dart';
 import 'package:realest/widgets/bottomNavigation.dart';
 import 'package:realest/widgets/wishlistCard.dart';
 
+// Dummy data for properties
+List<Map<String, String>> dummyProperties = [
+  {
+    'title': 'Spanish Mansion',
+    'price': '\$1,200/month',
+    'imageUrl': 'assets/1.png',
+    'address': '123 Example Street',
+  },
+  {
+    'title': 'Modern Villa in Bali',
+    'price': '\$1,500/month',
+    'imageUrl': 'assets/2.png',
+    'address': '456 Example Avenue',
+  },
+  // Add more properties as needed
+];
+
 class SavedPage extends StatelessWidget {
   const SavedPage({super.key});
 
@@ -15,36 +30,33 @@ class SavedPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        surfaceTintColor:
-            Colors.transparent, //biar pas ke scroll gak berubah warnanya
-        title: Center(
-          child: Container(
-            width: MediaQuery.of(context).size.width * 0.17,
-            child: Image(
-              image: AssetImage("assets/Logo.png"),
-            ),
-          ),
-        ),
+        title: const Text('Saved Properties',
+            style: TextStyle(
+                color: Color(0xFF081F5C),
+                fontSize: 20,
+                fontWeight: FontWeight.w600)),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: GridView.count(
-          crossAxisCount: 2,
-          shrinkWrap: true,
-          childAspectRatio:
-              (1 / 1.4), // Adjust aspect ratio to fit your content
-          crossAxisSpacing: 8.0,
-          // mainAxisSpacing: 16.0,
-          children: List.generate(16, (index) {
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8.0,
+            mainAxisSpacing: 16.0,
+            childAspectRatio: (1 / 1.4),
+          ),
+          itemCount: dummyProperties.length,
+          itemBuilder: (context, index) {
+            final property = dummyProperties[index];
             return Center(
               child: WishlistCard(
-                title: 'Title',
-                price: '\$XXX/month',
-                imageUrl: "assets/Logo.png",
-                address: '123 Example Street',
+                title: property['title']!,
+                price: property['price']!,
+                imageUrl: property['imageUrl']!,
+                address: property['address']!,
               ),
             );
-          }),
+          },
         ),
       ),
       bottomNavigationBar: BottomNavigation(

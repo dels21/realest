@@ -113,7 +113,7 @@ class _SimulationPageState extends State<SimulationPage> {
         title: const Text('Mortgage Simulation',
             style: TextStyle(
                 color: Colors.white,
-                fontSize: 17,
+                fontSize: 20,
                 fontWeight: FontWeight.w600)),
         backgroundColor: const Color(0xFF081F5C),
       ),

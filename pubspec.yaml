@@ -48,14 +48,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/Apple Logo.png
-    - assets/Facebook Logo.png
-    - assets/Google Logo.png
-    - assets/Horizontal Line.png
-    - assets/Horizontal Logo.png
-    - assets/Logo.png
-    - assets/RTB.png
-    - assets/Rumah1.png
+    - assets/
 
   fonts:
     - family: SFPro

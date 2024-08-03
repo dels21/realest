@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:realest/classes/property.dart';
 import 'package:realest/pages/home.dart';
+import 'package:realest/pages/list_properties.dart';
 import 'package:realest/pages/profile.dart';
 import 'package:realest/pages/saved.dart';
 import 'package:realest/pages/search2.dart';
@@ -10,6 +12,7 @@ import 'package:realest/widgets/carouselWidget.dart';
 import 'package:realest/widgets/nearby.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:realest/widgets/popUpFilter.dart';
+import 'package:realest/widgets/propertyCard.dart';
 
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
@@ -27,7 +30,7 @@ class _SearchPageState extends State<SearchPage> {
       if (_focusNode.hasFocus) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) => SearchPage2()),
+          MaterialPageRoute(builder: (context) => const SearchPage2()),
         );
       }
     });
@@ -39,6 +42,59 @@ class _SearchPageState extends State<SearchPage> {
   }
 
   bool _isBookmarked = false;
+  List<String> _nearby = [
+    'assets/1.png',
+    'assets/2.png',
+    'assets/3.png',
+    'assets/4.png'
+  ];
+  List<Property> dummyProperties = [
+    Property(
+      imagePaths: [
+        'assets/1.png',
+        'assets/2.png',
+        'assets/3.png',
+        'assets/4.png'
+      ],
+      propertyName: 'Spanish Mansion in Jakarta Pusat',
+      propertyDescription: 'Menteng, Jakarta Pusat',
+      propertyPrice: 'Rp 1.000.000.000',
+    ),
+    Property(
+      imagePaths: [
+        'assets/3.png',
+        'assets/4.png',
+        'assets/5.png',
+        'assets/6.png'
+      ],
+      propertyName: 'Modern Villa in Bali',
+      propertyDescription: 'Seminyak, Bali',
+      propertyPrice: 'Rp 2.500.000.000',
+    ),
+    Property(
+      imagePaths: [
+        'assets/5.png',
+        'assets/6.png',
+        'assets/7.png',
+        'assets/8.png'
+      ],
+      propertyName: 'Luxury Condo in Jakarta',
+      propertyDescription: 'Kebayoran Baru, Jakarta',
+      propertyPrice: 'Rp 3.000.000.000',
+    ),
+    Property(
+      imagePaths: [
+        'assets/7.png',
+        'assets/8.png',
+        'assets/1.png',
+        'assets/2.png'
+      ],
+      propertyName: 'Cozy Apartment in Bandung',
+      propertyDescription: 'Dago, Bandung',
+      propertyPrice: 'Rp 750.000.000',
+    ),
+    // Add more properties as needed
+  ];
 
   void _toggleBookmark() {
     setState(() {
@@ -53,7 +109,7 @@ class _SearchPageState extends State<SearchPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,42 +128,44 @@ class _SearchPageState extends State<SearchPage> {
                           child: TextField(
                             focusNode: _focusNode,
                             decoration: InputDecoration(
-                              prefixIcon: Icon(Icons.search),
+                              prefixIcon: const Icon(Icons.search),
                               // suffixIcon: Icon(Icons.clear),
                               labelText: 'Search',
                               // hintText: 'hint text',
                               border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(10),
-                                  borderSide: BorderSide(color: Colors.amber)),
+                                  borderSide:
+                                      const BorderSide(color: Colors.amber)),
                             ),
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       GestureDetector(
                         onTap: () {
                           showModalBottomSheet(
-                            context: context,
-                            isScrollControlled: true,
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.only(
-                                topLeft: Radius.circular(12),
-                                topRight: Radius.circular(12),
+                              context: context,
+                              isScrollControlled: true,
+                              shape: const RoundedRectangleBorder(
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(12),
+                                  topRight: Radius.circular(12),
+                                ),
                               ),
-                            ),
-                            builder: (context) {
-                              // Calculate 80% of the screen height
-                              final height = MediaQuery.of(context).size.height * 0.8;
-                              return Container(
-                                height: height,
-                                child: popUpFilter(),
-                              );
-                            },
+                              builder: (context) {
+                                // Calculate 80% of the screen height
+                                final height =
+                                    MediaQuery.of(context).size.height * 0.8;
+                                return Container(
+                                  height: height,
+                                  child: const popUpFilter(),
+                                );
+                              },
                               transitionAnimationController:
                                   AnimationController(
-                                duration: Duration(milliseconds: 1000),
+                                duration: const Duration(milliseconds: 1000),
                                 // Duration of the animation
                                 vsync: Navigator.of(context),
                               ));
@@ -116,9 +174,9 @@ class _SearchPageState extends State<SearchPage> {
                             width: 48,
                             height: 48,
                             decoration: BoxDecoration(
-                                color: Color(0xFF308DFF),
+                                color: const Color(0xFF308DFF),
                                 borderRadius: BorderRadius.circular(10)),
-                            child: Icon(
+                            child: const Icon(
                               Icons.filter_alt,
                               color: Colors.white,
                             )),
@@ -126,210 +184,86 @@ class _SearchPageState extends State<SearchPage> {
                     ],
                   ),
                 ),
-
                 // Properties Nearby
-                SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("Properties Nearby", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600),), Text("View More", style: TextStyle(fontSize: 15),)],
+                  children: [
+                    const Text(
+                      "Properties Nearby",
+                      style:
+                          TextStyle(fontSize: 22, fontWeight: FontWeight.w600),
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ListPropertiesPage()),
+                        );
+                      },
+                      child: const Text(
+                        "View More",
+                        style: TextStyle(fontSize: 15),
+                      ),
+                    )
+                  ],
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 SizedBox(
                     height: 220,
                     child: ListView.builder(
                         itemCount: 4,
                         scrollDirection: Axis.horizontal,
                         itemBuilder: (_, index) {
-                          return NearbyWidget();
+                          return NearbyWidget(imagePath: _nearby[index]);
                         })),
 
                 // Recommended
-                SizedBox(height: 10,),
+                const SizedBox(
+                  height: 10,
+                ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [Text("Recommended", style: TextStyle(fontSize: 22, fontWeight: FontWeight.w600)), Text("View More", style: TextStyle(fontSize: 15))],
-                ),
-                SizedBox(height: 10,),
-                Container(
-                  decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(12),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.black.withOpacity(0.25),
-                          blurRadius: 12,
-                        )
-                      ]),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      Container(
-                        child: CarouselSlider(
-                          options: CarouselOptions(
-                            viewportFraction: 1.1,
-                            // autoPlay: true,
-                          ),
-                          items: const [
-                            carouselWidget(imageURL: 'assets/Apple Logo.png'),
-                            carouselWidget(
-                                imageURL: 'assets/Facebook Logo.png'),
-                            carouselWidget(imageURL: 'assets/Google Logo.png'),
-                            carouselWidget(imageURL: 'assets/Logo.png'),
-                          ],
-                        ),
+                  children: [
+                    const Text("Recommended",
+                        style: TextStyle(
+                            fontSize: 22, fontWeight: FontWeight.w600)),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const ListPropertiesPage()),
+                        );
+                      },
+                      child: const Text(
+                        "View More",
+                        style: TextStyle(fontSize: 15),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(20),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Row(
-                                  children: [
-                                    Container(
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                          color: Color(0xFF081F5C),
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
-                                      width: 84,
-                                      height: 24,
-                                      child: Text(
-                                        "Exclusive",
-                                        style: TextStyle(color: Colors.white),
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      width: 20,
-                                    ),
-                                    Container(
-                                      alignment: Alignment.center,
-                                      decoration: BoxDecoration(
-                                          color: Color(0xFFC9AD93),
-                                          borderRadius:
-                                              BorderRadius.circular(6)),
-                                      width: 84,
-                                      height: 24,
-                                      child: Text("House",
-                                          style:
-                                              TextStyle(color: Colors.white)),
-                                    ),
-                                  ],
-                                ),
-                                IconButton(
-                                    onPressed: _toggleBookmark,
-                                    icon: Icon(_isBookmarked ? Icons.bookmark : Icons.bookmark_border),
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Text(
-                              "Spanish Mansion in Jakarta Pusat", style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                              textAlign: TextAlign.start,
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Text(
-                              "Menteng, Jakarta Pusat",
-                              textAlign: TextAlign.start,
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Row(
-                              children: [
-                                Text(
-                                  "1900 sqm",
-                                  textAlign: TextAlign.start,
-                                ),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                Text(
-                                  "900 sqm lot",
-                                  textAlign: TextAlign.start,
-                                ),
-                              ],
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Text(
-                              "Rp 1.000.000.000",
-                              textAlign: TextAlign.start,
-                              style: TextStyle(
-                                  fontSize: 22,
-                                  color: Color(0xFF081F5C),
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Text(
-                              "Cicilan: 2 jutaan per bulan",
-                              textAlign: TextAlign.start,
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Row(
-                              children: [
-                                Row(
-                                  children: [
-                                    Icon(Icons.bed_rounded),
-                                    Text("6")
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(Icons.bathtub_rounded),
-                                    Text("8")
-                                  ],
-                                ),
-                                SizedBox(
-                                  width: 20,
-                                ),
-                                Row(
-                                  children: [
-                                    Icon(CupertinoIcons.car),
-                                    Text("12")
-                                  ],
-                                )
-                              ],
-                            ),
-                            SizedBox(
-                              height: 4,
-                            ),
-                            Row(
-                              children: [
-                                Container(
-                                  width: 30,
-                                  height: 30,
-                                  decoration: BoxDecoration(
-                                      color: CupertinoColors.activeBlue,
-                                      borderRadius: BorderRadius.circular(100)),
-                                ),
-                                SizedBox(
-                                  width: 10,
-                                ),
-                                Text("PT Kobe Bryant Indonesia")
-                              ],
-                            )
-                          ],
+                    )
+                  ],
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                Column(
+                  children: dummyProperties.map((property) {
+                    return Column(
+                      children: [
+                        PropertyWidget(
+                          property: property,
                         ),
-                      )
-                    ],
-                  ),
+                        const SizedBox(
+                          height: 16,
+                        )
+                      ],
+                    );
+                  }).toList(),
                 )
               ],
             ),

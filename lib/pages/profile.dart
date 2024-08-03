@@ -12,7 +12,7 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(toolbarHeight: 50,),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return Center(

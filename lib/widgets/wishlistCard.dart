@@ -30,7 +30,18 @@ class _WishlistCardState extends State<WishlistCard> {
           Stack(
             alignment: Alignment.topRight,
             children: [
-              Image.asset(widget.imageUrl),
+              ClipRRect(
+                borderRadius: BorderRadius.vertical(
+                  top: Radius.circular(8.0), // Top border radius
+                ),
+                child: Image.asset(
+                  widget.imageUrl,
+                  width: MediaQuery.of(context).size.width,
+                  height: 100,
+                  fit:
+                      BoxFit.cover, // Use BoxFit.cover to maintain aspect ratio
+                ),
+              ),
               IconButton(
                 icon: Icon(
                   _isSaved ? Icons.star : Icons.star_border,
