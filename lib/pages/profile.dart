@@ -26,7 +26,7 @@ class ProfilePage extends StatelessWidget {
                         width: constraints.maxWidth * 0.2,
                         child: const ClipOval(
                           child: Image(
-                            image: AssetImage("assets/Profile.jpeg"),
+                            image: AssetImage("assets/RTB.png"),
                           ),
                         ),
                       ),

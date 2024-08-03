@@ -40,7 +40,7 @@ class SavedPage extends StatelessWidget {
               child: WishlistCard(
                 title: 'Title',
                 price: '\$XXX/month',
-                imageUrl: "assets/gambar_rumah.png",
+                imageUrl: "assets/Logo.png",
                 address: '123 Example Street',
               ),
             );
