@@ -19,19 +19,18 @@ class PropertyWidget extends StatefulWidget {
 class _PropertyWidgetState extends State<PropertyWidget> {
   bool _isBookmarked = false;
 
-  void _navigateToDetails() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => PropertiesDetailPages(property: widget.property),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: _navigateToDetails,
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) =>
+                PropertiesDetailPages(property: widget.property),
+          ),
+        );
+      },
       child: Container(
         decoration: BoxDecoration(
           color: Colors.white,
