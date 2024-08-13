@@ -13,6 +13,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(),
       body: SafeArea(
         child: LayoutBuilder(
@@ -52,6 +53,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                       const Padding(padding: EdgeInsets.fromLTRB(0, 0, 0, 20)),
                       const TextField(
+                        obscureText: true,
                         decoration: InputDecoration(
                           hintText: 'Password',
                           hintStyle: TextStyle(
